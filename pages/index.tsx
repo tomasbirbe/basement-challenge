@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
-    <div className="px-4 w-full">
+    <div className="px-4 w-full flex flex-col items-center justify-center pt-4 gap-12">
       <nav className="flex flex-row justify-between w-full py-4">
         <Image alt="Basement's logo" height={28} src="/logo.svg" width={192} />
         <div className="flex flex-row gap-x-4">
