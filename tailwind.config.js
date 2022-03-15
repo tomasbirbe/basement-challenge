@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       width: {
         overflow: "300wh",
+        440: "440px",
+      },
+      height: {
+        580: "580px",
       },
     },
   },

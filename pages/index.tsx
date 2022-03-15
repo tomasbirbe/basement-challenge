@@ -1,7 +1,19 @@
 import type {NextPage} from "next";
 import Image from "next/image";
+import {useEffect, useState} from "react";
+
+import {Product} from "../product/types";
+import api from "../services/api";
 
 const Home: NextPage = () => {
+  const [products, setProducts] = useState<Product[] | []>([]);
+
+  useEffect(() => {
+    api.getProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
+
   return (
     <div className="px-4 w-full flex flex-col items-center justify-center pt-4 gap-12">
       <nav className="flex flex-row justify-between w-full py-4">
@@ -25,6 +37,16 @@ const Home: NextPage = () => {
           A man can&apos;t have enough basement swag - A man can&apos;t have enough basement swag
         </p>
       </header>
+
+      <main className="flex gap-3">
+        {products.map((product) => (
+          <div key={product.id} className="w-440 h-580">
+            <div className="w-full h-full relative">
+              <Image alt="A preview of a product" layout="fill" src={product.image} />
+            </div>
+          </div>
+        ))}
+      </main>
     </div>
   );
 };
