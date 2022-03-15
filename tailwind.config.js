@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       grotesque: ["Basement Grotesque"],
     },
-    extend: {},
+    extend: {
+      width: {
+        overflow: "300wh",
+      },
+    },
   },
   variants: {
     extend: {},
