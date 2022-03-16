@@ -40,7 +40,10 @@ const Home: NextPage = () => {
 
       <main className="flex gap-3">
         {products.map((product) => (
-          <div key={product.id} className="w-440 h-580">
+          <div
+            key={product.id}
+            className="w-440 h-580 bg-gradient-to-t from-starter-gradient to-ending-gradient"
+          >
             <div className="w-full h-full relative">
               <Image alt="A preview of a product" layout="fill" src={product.image} />
             </div>

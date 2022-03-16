@@ -13,6 +13,10 @@ module.exports = {
       height: {
         580: "580px",
       },
+      colors: {
+        "starter-gradient": "#1D1D1D",
+        "ending-gradient": "rgba(21, 21, 21, 0)",
+      },
     },
   },
   variants: {

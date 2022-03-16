@@ -9,6 +9,7 @@ El checkout no está listo tampoco así que con imprimir en consola el pedido al
 El cliente quiere que usemos NextJS, TypeScript y Tailwind, pero por suerte nos dió el proyecto con todo ya configurado. También nos dejó instalada su fuente y algunos assets en la carpeta `public`.
 
 También nos dijo que no era requerido, pero nos iba a pagar un importante bono por cada punto extra:
+
 * Tests de integración con Cypress
 * Tests unitarios con Jest y React Testing Library
 * Guardar el cart del usuario en localStorage
@@ -21,6 +22,7 @@ Nos pidió que el código sea lo más prolijo posible, para que cuando el backen
 Como el cliente no sabe de desarrollo nos pidió que despleguemos nuestra aplicación en algún lado y le mandemos un link para ver el progreso.
 
 ## Corriendo el proyecto
+
 ```bash
 # Instalar dependencias del proyecto
 npm install
@@ -30,4 +32,5 @@ npm run dev
 ```
 
 ## Modalidad de entrega
+
 * Repositorio público subido a GitHub, Gitlab, Bitbucket.
