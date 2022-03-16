@@ -30,8 +30,8 @@ const Home: NextPage = () => {
         </button>
       </nav>
       <header className="w-full overflow-hidden flex flex-col gap-12 justiy-center items-center">
-        <div className="block w-full">
-          <Image alt="hola" height={365} layout="responsive" src="/header.svg" width={1376} />
+        <div className="relative w-full h-header">
+          <Image alt="hola" layout="fill" src="/header.svg" />
         </div>
         <p className="w-overflow overflow-hidden py-2 border-b border-t whitespace-nowrap text-4xl">
           A man can&apos;t have enough basement swag - A man can&apos;t have enough basement swag
@@ -44,12 +44,19 @@ const Home: NextPage = () => {
             key={product.id}
             className="w-440 h-580 bg-gradient-to-t from-starter-gradient to-ending-gradient"
           >
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative border-b border-white">
               <Image alt="A preview of a product" layout="fill" src={product.image} />
+            </div>
+            <div className="flex justify-between pt-2 text-xl">
+              <p>{product.name}</p>
+              <p>${product.price}</p>
             </div>
           </div>
         ))}
       </main>
+      <div className="relative w-full h-footer">
+        <Image alt="A footer" layout="fill" src="/footer.svg" />
+      </div>
     </div>
   );
 };

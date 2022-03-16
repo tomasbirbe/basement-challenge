@@ -12,6 +12,8 @@ module.exports = {
       },
       height: {
         580: "580px",
+        header: "365px",
+        footer: "486px",
       },
       colors: {
         "starter-gradient": "#1D1D1D",
