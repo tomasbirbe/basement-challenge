@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="px-4 w-full flex flex-col items-center justify-center pt-4 gap-12">
+    <div className="px-4 w-full max-w-screen-2xl m-auto flex flex-col items-center justify-center pt-4 gap-12">
       <nav className="flex flex-row justify-between w-full py-4">
         <Image alt="Basement's logo" height={28} src="/logo.svg" width={192} />
         <div className="flex flex-row gap-x-4">
@@ -44,9 +44,20 @@ const Home: NextPage = () => {
             key={product.id}
             className="w-440 h-580 bg-gradient-to-t from-starter-gradient to-ending-gradient"
           >
-            <div className="w-full h-full relative border-b border-white">
+            <button
+              className="w-full h-full flex items-center justify-center relative border-b border-white"
+              id="image-container"
+            >
               <Image alt="A preview of a product" layout="fill" src={product.image} />
-            </div>
+              <div className="w-1/2 h-1/2 relative">
+                <Image
+                  alt="Image of add the product to the cart"
+                  id="add-to-cart"
+                  layout="fill"
+                  src="/add-to-cart.svg"
+                />
+              </div>
+            </button>
             <div className="flex justify-between pt-2 text-xl">
               <p>{product.name}</p>
               <p>${product.price}</p>
