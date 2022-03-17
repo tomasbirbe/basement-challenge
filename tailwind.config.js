@@ -6,6 +6,12 @@ module.exports = {
       grotesque: ["Basement Grotesque"],
     },
     extend: {
+      dropShadow: {
+        "cart-title": "0px 0px 10px white",
+      },
+      fontSize: {
+        "cart-title": "111px",
+      },
       screens: {
         sm: "640px",
         md: "768px",
@@ -21,6 +27,7 @@ module.exports = {
         580: "580px",
         header: "365px",
         footer: "486px",
+        fit: "fit-content",
       },
       colors: {
         "starter-gradient": "#1D1D1D",
