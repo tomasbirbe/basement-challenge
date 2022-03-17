@@ -22,12 +22,14 @@ module.exports = {
       width: {
         overflow: "300wh",
         440: "440px",
+        fit: "fit-content",
       },
       height: {
         580: "580px",
         header: "365px",
         footer: "486px",
         fit: "fit-content",
+        "min-content": "min-content",
       },
       colors: {
         "starter-gradient": "#1D1D1D",

@@ -14,6 +14,7 @@ interface CartItem {
 const Home: NextPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [showCart, setShowCart] = useState<boolean>(false);
 
   useEffect(() => {
     api.getProducts().then((products) => {
@@ -77,7 +78,10 @@ const Home: NextPage = () => {
               width={24}
             />
           </div>
-          <button className="font-bold font-grotesque text-lg rounded-3xl border-white border-2 px-4 py-2">
+          <button
+            className="font-bold font-grotesque text-lg rounded-3xl border-white border-2 px-4 py-2"
+            onClick={() => setShowCart(true)}
+          >
             CART (0)
           </button>
         </nav>
@@ -121,23 +125,47 @@ const Home: NextPage = () => {
         <div className="relative w-full h-footer">
           <Image alt="A footer" layout="fill" src="/footer.svg" />
         </div>
-        <div className="absolute bg-black border border-white top-0 right-0 z-20">
+
+        <div
+          className={`absolute flex items-center justify-center flex-col bg-black border border-white top-0 right-0 z-20 ${
+            showCart ? "flex" : "hidden"
+          }`}
+        >
+          <div className="self-end pt-4 px-4">
+            <button className="px-4 text-2xl" onClick={() => setShowCart(false)}>
+              → CLOSE
+            </button>
+          </div>
           <div className="flex gap-6 px-8">
             <span className="text-cart-title">YOUR</span>
             <span className="text-cart-title hollow text-black">CART</span>
           </div>
-          {cart.map((cartItem) => (
-            <div key={cartItem.id}>
-              <p>{cartItem.product.name}</p>
-            </div>
-          ))}
+          <div className="w-full px-8 pb-10 flex flex-col gap-8">
+            {cart.map((cartItem) => (
+              <div key={cartItem.id} className="py-4 px-6 border max-h-screen border-white w-full">
+                <div className="bg-gradient-to-t w-fit from-starter-gradient to-ending-gradient">
+                  <Image
+                    alt="A preview of a product"
+                    height={230}
+                    src={cartItem.product.image}
+                    width={210}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="w-full flex justify-between border-t px-6">
             <p className="text-4xl py-4 w-3/5 flex-2 border-r">TOTAL: ${calculateTotal()}</p>
             <button className="text-4xl py-4 hollow text-black">CHECKOUT</button>
           </div>
         </div>
       </div>
-      <div className="fixed top-0 left-0 z-10 w-full h-full bg-opacity-60 bg-black" />
+      <div
+        className={`fixed top-0 left-0 z-10 w-full h-full bg-opacity-60 bg-black ${
+          showCart ? "block" : "hidden"
+        }`}
+        onClick={() => setShowCart(false)}
+      />
     </>
   );
 };
