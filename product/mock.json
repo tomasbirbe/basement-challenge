@@ -1,7 +1,7 @@
 {
   "products":[
-    {"id": 1, "name": "Black t-shirt", "price":7.95, "image": "/products/shirt.png"},
-    {"id": 2, "name": "Black hoodie", "price":13, "image": "/products/hoodie.png"},
-    {"id": 3, "name": "Black cap", "price":23, "image": "/products/cap.png"}
+    {"id": 1, "name": "Black t-shirt", "price":7.95, "image": "/products/shirt.png", "description": "Unisex Basic Softstyle T-Shirt"},
+    {"id": 2, "name": "Black hoodie", "price":13, "image": "/products/hoodie.png", "description": "Black Oversized Hoodie"},
+    {"id": 3, "name": "Black cap", "price":23, "image": "/products/cap.png", "description": "Lightweight Cap"}
   ]
 }

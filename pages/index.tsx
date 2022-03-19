@@ -20,6 +20,12 @@ const Home: NextPage = () => {
     api.getProducts().then((products) => {
       setProducts(products);
     });
+
+    setCart(
+      window.localStorage.getItem("cart")
+        ? JSON.parse(window.localStorage.getItem("cart") as string)
+        : [],
+    );
   }, []);
 
   function addToCart(product: Product) {
@@ -30,6 +36,7 @@ const Home: NextPage = () => {
     };
 
     setCart([...cart, cartItem]);
+    window.localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
   }
 
   function calculateTotal() {
@@ -82,7 +89,7 @@ const Home: NextPage = () => {
             className="font-bold font-grotesque text-lg rounded-3xl border-white border-2 px-4 py-2"
             onClick={() => setShowCart(true)}
           >
-            CART (0)
+            CART ( {cart.length} )
           </button>
         </nav>
         <header className="px-6 w-full overflow-hidden flex flex-col gap-12 justiy-center items-center">
@@ -142,7 +149,10 @@ const Home: NextPage = () => {
           </div>
           <div className="w-full px-8 pb-10 flex flex-col gap-8">
             {cart.map((cartItem) => (
-              <div key={cartItem.id} className="py-4 px-6 border max-h-screen border-white w-full">
+              <div
+                key={cartItem.id}
+                className="py-4 px-6 border max-h-screen flex border-white w-full"
+              >
                 <div className="bg-gradient-to-t w-fit from-starter-gradient to-ending-gradient">
                   <Image
                     alt="A preview of a product"
@@ -151,6 +161,25 @@ const Home: NextPage = () => {
                     width={210}
                   />
                 </div>
+                <div className="flex flex-col justify-between">
+                  <div>
+                    {cartItem.product.name}
+                    {cartItem.product.description}
+                  </div>
+                  <div>
+                    <div className="flex gap-4 items-center">
+                      <p>Quantity</p>
+                      <input className="w-10 text-center rounded-xl text-black" type="number" />
+                    </div>
+                    <div className="flex gap-4 items-center">
+                      <p>Size</p>
+                      <input id="" name="size" type="radio" />
+                      <input id="" name="size" type="radio" />
+                      <input id="" name="size" type="radio" />
+                    </div>
+                  </div>
+                </div>
+                <div />
               </div>
             ))}
           </div>
