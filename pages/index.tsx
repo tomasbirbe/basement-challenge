@@ -121,6 +121,19 @@ const Home: NextPage = () => {
         <footer className="relative w-full h-footer">
           <Image alt="A footer" layout="fill" src="/footer.svg" />
         </footer>
+
+        {/* ============== Decoration ============== */}
+        <div className="hidden lg:block absolute top-asterisk right-32">
+          <Image alt="Image of asterisk. Decoration" height={125} src="/asterisk.svg" width={125} />
+        </div>
+        <div className="hidden lg:block absolute top-asterisk2 left-32">
+          <Image
+            alt="Image of asterisk. Decoration"
+            height={125}
+            src="/asterisk2.svg"
+            width={125}
+          />
+        </div>
       </div>
 
       {/* ============== Overlay for cart ============== */}

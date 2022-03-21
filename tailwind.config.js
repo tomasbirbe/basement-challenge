@@ -40,6 +40,10 @@ module.exports = {
       outline: {
         custom: "1px solid #ffffff",
       },
+      spacing: {
+        asterisk: "29rem",
+        asterisk2: "34rem",
+      },
     },
   },
   variants: {
