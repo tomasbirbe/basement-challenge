@@ -69,6 +69,12 @@ export default function Cart({ cartState, closeCart }: Props) {
     }
   }
 
+  function removeItem(cartItemId: number) {
+    const modifiedCart = cart.filter((item: CartItem) => item.id !== cartItemId);
+
+    setCart(orderCart(modifiedCart));
+  }
+
   function calculateTotal() {
     return cart.reduce((acc: number, cartItem: CartItem) => cartItem.totalPrice + acc, 0);
   }
@@ -85,12 +91,21 @@ export default function Cart({ cartState, closeCart }: Props) {
           <span>YOUR</span>
           <span className="hollow text-black">CART</span>
         </div>
+
+        {/* Items */}
+
         <div className="w-full px-8 pb-10 max-cart-screen overflow-auto flex flex-col gap-8">
           {cart.map((cartItem) => (
             <div
               key={cartItem.id}
               className="py-4 px-6 border flex flex-col sm:flex-row items-center gap-4 relative border-white w-full"
             >
+              <button
+                className="absolute top-4 right-8 text-2xl"
+                onClick={() => removeItem(cartItem.id)}
+              >
+                X
+              </button>
               <div className="bg-gradient-to-t w-fit from-starter-gradient to-ending-gradient">
                 <Image
                   alt="A preview of a product"
@@ -166,6 +181,9 @@ export default function Cart({ cartState, closeCart }: Props) {
           ))}
         </div>
       </div>
+
+      {/* Footer */}
+
       <div className="w-full flex flex-col lg:flex-row justify-between border-t-0 lg:border-t px-4 md:px-0">
         <div className="text-2xl flex justify-between lg:justify-start lg:gap-4 sm:text-4xl pl-6 py-4 md:py-2 lg:py-4 w-full lg:w-3/5 flex-2 border-b lg:border-r lg:border-b-0">
           <span>TOTAL:</span>
