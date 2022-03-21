@@ -1,5 +1,5 @@
 import * as mock from "../product/mock.json";
-import {Product} from "../product/types";
+import {Product} from "../types/types";
 
 const api = {
   getProducts: (): Promise<Product[]> =>
