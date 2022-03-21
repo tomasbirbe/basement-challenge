@@ -11,6 +11,7 @@ module.exports = {
       },
       fontSize: {
         "cart-title": "111px",
+        "8.5xl": ["6.5rem", 1],
       },
       screens: {
         sm: "640px",
@@ -29,11 +30,15 @@ module.exports = {
         header: "365px",
         footer: "486px",
         fit: "fit-content",
-        "min-content": "min-content",
+        min: "min-content",
+        max: "max-content",
       },
       colors: {
         "starter-gradient": "#1D1D1D",
         "ending-gradient": "rgba(21, 21, 21, 0)",
+      },
+      outline: {
+        custom: "1px solid #ffffff",
       },
     },
   },

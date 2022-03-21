@@ -13,6 +13,7 @@ body,
   min-height: 100vh;
   padding: 0;
   margin: 0;
+  overflow:auto;
   font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -37,4 +38,12 @@ a {
 
 .hollow{
   text-shadow: 1px 0px rgba(255,255,255,1), -1px 0px rgba(255,255,255,1), 0px 1px rgba(255,255,255,1), 0px -1px rgba(255,255,255,1);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.max-h-cart {
+  max-height: calc(100% - 166px - 48px - 73px);
 }
