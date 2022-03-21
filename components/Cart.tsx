@@ -77,7 +77,7 @@ export default function Cart({ cartState, closeCart }: Props) {
     <>
       <div className="w-full h-full flex overflow-auto flex-col">
         <div className="pt-4 px-4 w-full flex justify-end">
-          <button className="px-4 text-2xl" onClick={() => closeCart}>
+          <button className="px-4 text-2xl" onClick={closeCart}>
             → CLOSE
           </button>
         </div>

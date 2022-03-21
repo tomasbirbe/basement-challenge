@@ -6,6 +6,7 @@ import { CartItem, Product, Sizes } from "../types/types";
 import api from "../services/api";
 import Cart from "../components/Cart";
 import orderCart from "../utils/order";
+import Nav from "../components/Nav";
 
 const Home: NextPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -48,6 +49,10 @@ const Home: NextPage = () => {
     setShowCart(false);
   }
 
+  function openCart() {
+    setShowCart(true);
+  }
+
   return (
     <>
       <div
@@ -55,52 +60,11 @@ const Home: NextPage = () => {
           "w-full max-w-screen-2xl m-auto relative flex flex-col items-center justify-center pt-4 gap-12"
         }
       >
-        <nav className="px-6 flex flex-row justify-between w-full py-4 sticky top-0 z-10 bg-black">
-          <div className="hidden md:flex md:items-center">
-            <Image alt="Basement's logo" height={28} src="/logo.svg" width={192} />
-          </div>
-          <div className="md:hidden flex items-center">
-            <Image alt="Basement's logo" height={30} src="/sm-logo.svg" width={30} />
-          </div>
-          <div className="hidden md:flex md:flex-row md:gap-x-4">
-            <Image
-              alt="Icon for decoration"
-              height={22}
-              src="/icons/navbar-icon-1.svg"
-              width={22}
-            />
-            <Image
-              alt="Icon for decoration"
-              height={24}
-              src="/icons/navbar-icon-2.svg"
-              width={42}
-            />
-            <Image
-              alt="Icon for decoration"
-              height={20}
-              src="/icons/navbar-icon-3.svg"
-              width={82}
-            />
-            <Image
-              alt="Icon for decoration"
-              height={24}
-              src="/icons/navbar-icon-4.svg"
-              width={42}
-            />
-            <Image
-              alt="Icon for decoration"
-              height={21}
-              src="/icons/navbar-icon-5.svg"
-              width={24}
-            />
-          </div>
-          <button
-            className="font-bold font-grotesque text-lg rounded-3xl border-white border-2 px-4 py-2"
-            onClick={() => setShowCart(true)}
-          >
-            CART ( {cart.length} )
-          </button>
-        </nav>
+        {/* Nav */}
+
+        <Nav openCart={openCart} totalItems={cart.length} />
+
+        {/* Header */}
 
         <header className="px-6 w-full overflow-hidden flex flex-col gap-12 justiy-center items-center">
           <div className="relative w-full h-header">
@@ -110,6 +74,8 @@ const Home: NextPage = () => {
             A man can&apos;t have enough basement swag - A man can&apos;t have enough basement swag
           </p>
         </header>
+
+        {/* ============== Product / Main ==============  */}
 
         <main className="px-6 flex gap-3 justify-center flex-wrap">
           {products.map((product) => (
@@ -138,19 +104,27 @@ const Home: NextPage = () => {
               </div>
             </div>
           ))}
-          <div
-            className={`fixed w-full lg:w-fit flex items-center max-h-screen justify-between flex-col bg-black lg:border lg:border-white top-0 right-0 z-20 ${
-              showCart ? "flex" : "hidden"
-            }`}
-          >
-            <Cart cartState={[cart, setCart]} closeCart={closeCart} />
-          </div>
         </main>
+
+        {/* ============== Cart ============== */}
+
+        <div
+          className={`fixed w-full lg:w-fit flex items-center max-h-screen justify-between flex-col bg-black lg:border lg:border-white top-0 right-0 z-20 ${
+            showCart ? "flex" : "hidden"
+          }`}
+        >
+          <Cart cartState={[cart, setCart]} closeCart={closeCart} />
+        </div>
+
+        {/* ============== Footer ==============  */}
 
         <footer className="relative w-full h-footer">
           <Image alt="A footer" layout="fill" src="/footer.svg" />
         </footer>
       </div>
+
+      {/* ============== Overlay for cart ============== */}
+
       <div
         className={`fixed top-0 left-0 z-10 w-full h-full bg-opacity-60 bg-black ${
           showCart ? "hidden md:block" : "hidden"
